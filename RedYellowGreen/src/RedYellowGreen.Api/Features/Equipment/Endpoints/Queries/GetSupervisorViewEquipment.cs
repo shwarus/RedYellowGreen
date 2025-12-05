@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using RedYellowGreen.Api.Features.Equipment.Models;
 using RedYellowGreen.Api.Infrastructure.Database;
 
-namespace RedYellowGreen.Api.Features.Equipment.Endpoints;
+namespace RedYellowGreen.Api.Features.Equipment.Endpoints.Queries;
 
 public class GetSupervisorViewEquipment : BaseEquipmentController
 {
