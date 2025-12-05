@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace RedYellowGreen.Api.Infrastructure.Database.Migrations
 {
     /// <inheritdoc />
-    public partial class AddInitialModels : Migration
+    public partial class AddEquipmentAndOrders : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -27,7 +27,7 @@ namespace RedYellowGreen.Api.Infrastructure.Database.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EquipmentStateEntity",
+                name: "EquipmentStates",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -37,9 +37,9 @@ namespace RedYellowGreen.Api.Infrastructure.Database.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EquipmentStateEntity", x => x.Id);
+                    table.PrimaryKey("PK_EquipmentStates", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_EquipmentStateEntity_Equipment_EquipmentId",
+                        name: "FK_EquipmentStates_Equipment_EquipmentId",
                         column: x => x.EquipmentId,
                         principalTable: "Equipment",
                         principalColumn: "Id",
@@ -47,7 +47,7 @@ namespace RedYellowGreen.Api.Infrastructure.Database.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OrderEntity",
+                name: "Orders",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -57,9 +57,9 @@ namespace RedYellowGreen.Api.Infrastructure.Database.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderEntity", x => x.Id);
+                    table.PrimaryKey("PK_Orders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_OrderEntity_Equipment_EquipmentId",
+                        name: "FK_Orders_Equipment_EquipmentId",
                         column: x => x.EquipmentId,
                         principalTable: "Equipment",
                         principalColumn: "Id",
@@ -72,18 +72,18 @@ namespace RedYellowGreen.Api.Infrastructure.Database.Migrations
                 column: "CurrentState_State");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EquipmentStateEntity_EquipmentId",
-                table: "EquipmentStateEntity",
+                name: "IX_EquipmentStates_EquipmentId",
+                table: "EquipmentStates",
                 column: "EquipmentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EquipmentStateEntity_State",
-                table: "EquipmentStateEntity",
+                name: "IX_EquipmentStates_State",
+                table: "EquipmentStates",
                 column: "State");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderEntity_EquipmentId",
-                table: "OrderEntity",
+                name: "IX_Orders_EquipmentId",
+                table: "Orders",
                 column: "EquipmentId");
         }
 
@@ -91,10 +91,10 @@ namespace RedYellowGreen.Api.Infrastructure.Database.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "EquipmentStateEntity");
+                name: "EquipmentStates");
 
             migrationBuilder.DropTable(
-                name: "OrderEntity");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "Equipment");

@@ -19,6 +19,8 @@ internal class EquipmentStatesConfiguration : IEntityTypeConfiguration<Equipment
 {
     public void Configure(EntityTypeBuilder<EquipmentStateEntity> builder)
     {
+        builder.ToTable("EquipmentStates");
+
         builder
             .HasOne(x => x.Equipment)
             .WithMany(e => e.States)

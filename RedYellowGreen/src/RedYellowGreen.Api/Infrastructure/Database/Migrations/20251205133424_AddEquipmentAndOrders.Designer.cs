@@ -12,8 +12,8 @@ using RedYellowGreen.Api.Infrastructure.Database;
 namespace RedYellowGreen.Api.Infrastructure.Database.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251205124331_AddInitialModels")]
-    partial class AddInitialModels
+    [Migration("20251205133424_AddEquipmentAndOrders")]
+    partial class AddEquipmentAndOrders
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,10 +65,10 @@ namespace RedYellowGreen.Api.Infrastructure.Database.Migrations
 
                     b.HasIndex("State");
 
-                    b.ToTable("EquipmentStateEntity");
+                    b.ToTable("EquipmentStates", (string)null);
                 });
 
-            modelBuilder.Entity("RedYellowGreen.Api.Features.Equipment.Models.OrderEntity", b =>
+            modelBuilder.Entity("RedYellowGreen.Api.Features.Orders.Models.OrderEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
@@ -88,7 +88,7 @@ namespace RedYellowGreen.Api.Infrastructure.Database.Migrations
 
                     b.HasIndex("EquipmentId");
 
-                    b.ToTable("OrderEntity");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("RedYellowGreen.Api.Features.Equipment.Models.EquipmentEntity", b =>
@@ -131,7 +131,7 @@ namespace RedYellowGreen.Api.Infrastructure.Database.Migrations
                     b.Navigation("Equipment");
                 });
 
-            modelBuilder.Entity("RedYellowGreen.Api.Features.Equipment.Models.OrderEntity", b =>
+            modelBuilder.Entity("RedYellowGreen.Api.Features.Orders.Models.OrderEntity", b =>
                 {
                     b.HasOne("RedYellowGreen.Api.Features.Equipment.Models.EquipmentEntity", "Equipment")
                         .WithMany("Orders")
