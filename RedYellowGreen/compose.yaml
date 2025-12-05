@@ -1,0 +1,7 @@
+﻿services:
+  redyellowgreen.api:
+    image: redyellowgreen.api
+    build:
+      context: .
+      dockerfile: src/RedYellowGreen.Api/Dockerfile
+
