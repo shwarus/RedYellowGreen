@@ -1,11 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using RedYellowGreen.Api.Features.Equipment.Models;
+using RedYellowGreen.Api.Features.Orders.Models;
 
 namespace RedYellowGreen.Api.Infrastructure.Database;
 
 public class AppDbContext : DbContext
 {
     internal DbSet<EquipmentEntity> Equipment { get; set; }
+    internal DbSet<OrderEntity> Orders { get; set; }
 
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {

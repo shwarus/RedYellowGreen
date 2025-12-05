@@ -1,0 +1,35 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RedYellowGreen.Api.Features.Equipment.Models;
+using RedYellowGreen.Api.Infrastructure.Database;
+
+namespace RedYellowGreen.Api.Features.Orders.Endpoints.Queries;
+
+public class GetOrders : BaseOrdersController
+{
+    public record Equipment(Guid Id, EquipmentState State);
+
+    public record Result(
+        Guid Id,
+        string OrderNumber,
+        DateTime CreatedAt,
+        Equipment Equipment
+    );
+
+    public async Task<Result[]> Handle(
+        [FromServices] AppDbContext dbContext
+    ) =>
+        await dbContext.Orders
+            .Select(o =>
+                new Result(
+                    o.Id,
+                    o.OrderNumber,
+                    o.CreatedAt,
+                    new Equipment(
+                        o.Equipment.Id,
+                        o.Equipment.CurrentState.State
+                    )
+                )
+            )
+            .ToArrayAsync();
+}

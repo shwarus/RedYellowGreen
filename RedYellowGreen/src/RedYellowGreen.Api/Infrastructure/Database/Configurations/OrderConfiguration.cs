@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using RedYellowGreen.Api.Features.Equipment.Models;
+using RedYellowGreen.Api.Features.Orders.Models;
 
 namespace RedYellowGreen.Api.Infrastructure.Database.Configurations;
 

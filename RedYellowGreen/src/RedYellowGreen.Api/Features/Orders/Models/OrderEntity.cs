@@ -1,7 +1,8 @@
 using System.ComponentModel.DataAnnotations;
+using RedYellowGreen.Api.Features.Equipment.Models;
 using RedYellowGreen.Api.Infrastructure.Database.Models;
 
-namespace RedYellowGreen.Api.Features.Equipment.Models;
+namespace RedYellowGreen.Api.Features.Orders.Models;
 
 internal sealed class OrderEntity : BaseEntity
 {

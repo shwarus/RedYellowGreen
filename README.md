@@ -73,6 +73,10 @@ There should be 2 separate dashboards / views for different actors:
             - GET /equipment/{id}/state-history returns a of equipment states:
                 - State
                 - Timestamp
+            - GET /orders - all orders with fields
+              - Id
+              - Order number
+              - Equipment (Id, Title, State)
             - POST equipment/{id}/orders - schedule order endpoint, no input
 
     - SignalR Hub that publishes updates on state changes

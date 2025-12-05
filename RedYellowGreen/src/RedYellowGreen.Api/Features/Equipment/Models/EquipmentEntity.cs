@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
+using RedYellowGreen.Api.Features.Orders.Models;
 using RedYellowGreen.Api.Infrastructure;
 using RedYellowGreen.Api.Infrastructure.Database.Models;
 
