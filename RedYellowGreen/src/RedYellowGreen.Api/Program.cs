@@ -1,4 +1,7 @@
+using System.Reflection;
 using System.Text.Json.Serialization;
+using MassTransit;
+using MassTransit.Metadata;
 using Microsoft.EntityFrameworkCore;
 using RedYellowGreen.Api.Infrastructure.Database;
 using RedYellowGreen.Api.Infrastructure.Database.Interceptors;
@@ -43,6 +46,20 @@ services
 services
     .AddControllers()
     .AddJsonOptions(options => { options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()); });
+
+services.AddMassTransit(x =>
+{
+    var consumerTypes = Assembly
+        .GetExecutingAssembly()
+        .GetTypes()
+        .Where(RegistrationMetadata.IsConsumerOrDefinition)
+        .ToArray();
+
+    x.AddConsumers(consumerTypes);
+    // in-memory for the sake of the exercise, in a prod setup it would be
+    // an actual service bus, e.g. rabbitmq, possibly with an outbox in EF
+    x.UsingInMemory((context, cfg) => { cfg.ConfigureEndpoints(context); });
+});
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 services.AddOpenApi();
