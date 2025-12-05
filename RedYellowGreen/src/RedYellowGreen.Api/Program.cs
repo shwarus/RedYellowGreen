@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using MassTransit;
 using MassTransit.Metadata;
 using Microsoft.EntityFrameworkCore;
+using RedYellowGreen.Api.Features;
 using RedYellowGreen.Api.Infrastructure.Database;
 using RedYellowGreen.Api.Infrastructure.Database.Interceptors;
 using RedYellowGreen.Api.Infrastructure.Middleware;
@@ -66,6 +67,7 @@ services.AddOpenApi();
 
 var app = builder.Build();
 app.UseCors();
+app.MapHub<UpdateHub>("ws/updates");
 
 var runMigrations = Environment.GetEnvironmentVariable("RUN_MIGRATIONS") is "true";
 if (runMigrations)
