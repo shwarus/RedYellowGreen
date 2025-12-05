@@ -30,7 +30,7 @@ public static class EquipmentClientExtensions
         public Task SetEquipmentState(Guid equipmentId, EquipmentState state) =>
             client
                 .Request(EquipmentPathRoot, equipmentId, "state")
-                .PostJsonAsync(new SetEquipmentState.Request(state));
+                .PutJsonAsync(new SetEquipmentState.Request(state));
 
         /// <summary>
         ///     <see cref="GetSupervisorViewEquipment.Handle" />
