@@ -24,7 +24,7 @@ public class CreateOrder : BaseOrdersController
         var order = new OrderEntity
         {
             Equipment = equipment,
-            OrderNumber = Guid.NewGuid().ToString("N").Substring(0, 8)
+            OrderNumber = Guid.NewGuid().ToString("N")[..8]
         };
         equipment.Orders.Add(order);
 

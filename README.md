@@ -77,7 +77,7 @@ There should be 2 separate dashboards / views for different actors:
               - Id
               - Order number
               - Equipment (Id, Title, State)
-            - POST equipment/{id}/orders - schedule order endpoint, no input
+            - POST /orders - schedule order endpoint for equipment
 
     - SignalR Hub that publishes updates on state changes
         - Updates on equipment state changes
