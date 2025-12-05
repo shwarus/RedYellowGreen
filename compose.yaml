@@ -2,6 +2,6 @@
   redyellowgreen.api:
     image: redyellowgreen.api
     build:
-      context: .
+      context: ./RedYellowGreen
       dockerfile: src/RedYellowGreen.Api/Dockerfile
 
