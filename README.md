@@ -4,7 +4,7 @@
 
 ### Current situation
 
-Currently workers walk around the factory and use their own judgement to determine the state of equipment, which they then mark with a magnet attached to the physical equipment.
+Currently workers walk around the factory and change its state manually, then they mark the state by attaching a magnet with color (Red/Yellow/Green) to the physical equipment.
 The problem is that there's no high level overview of all the equipment as it's only possible to see a state of equipment by physically seeing which color magnet is attached to it. Same for setting the state.
 
 Supervisors schedule orders, presumably in an analog way as well.
@@ -15,13 +15,14 @@ The goal is to create a system for keeping track of equipment state indicators a
 
 #### States
 
-The indication of state is still done by workers using their judgement by physically seeing the equipment when they are near it and then setting the state in the system.
+The indication of state is still done by workers by physically putting the equipment in a specific state when they are near it and then setting the state in the system.
 
 #### Orders
 
 Supervisors can schedule orders to equipment in the system and workers should be able to see order backlog for each equipment.
 
-It is not clear from the requirements how it is indicated which order is being performed nor how it is marked as done. So I'm going to make a call and say that the current order is the least recent one (a queue) and a worker needs to mark it as done.
+It is not clear from the requirements how it is indicated which order is being performed nor how it is marked as done.
+So I'm going to make a call and say that the current order is the least recent one (a queue) and a worker needs to mark it as done.
 
 ### Outcome
 

@@ -1,4 +1,3 @@
-using System.Reflection.Metadata;
 using Flurl.Http;
 using Integration.Tests.Utilities;
 using RedYellowGreen.Api.Features.Equipment.Endpoints.Commands;
