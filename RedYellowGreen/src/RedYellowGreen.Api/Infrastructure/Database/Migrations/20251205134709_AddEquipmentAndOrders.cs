@@ -53,6 +53,7 @@ namespace RedYellowGreen.Api.Infrastructure.Database.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     EquipmentId = table.Column<Guid>(type: "uuid", nullable: false),
                     OrderNumber = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false),
+                    Status = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
@@ -85,6 +86,11 @@ namespace RedYellowGreen.Api.Infrastructure.Database.Migrations
                 name: "IX_Orders_EquipmentId",
                 table: "Orders",
                 column: "EquipmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_Status",
+                table: "Orders",
+                column: "Status");
         }
 
         /// <inheritdoc />

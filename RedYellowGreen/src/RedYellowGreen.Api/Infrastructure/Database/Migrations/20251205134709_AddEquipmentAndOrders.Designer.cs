@@ -12,7 +12,7 @@ using RedYellowGreen.Api.Infrastructure.Database;
 namespace RedYellowGreen.Api.Infrastructure.Database.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251205133424_AddEquipmentAndOrders")]
+    [Migration("20251205134709_AddEquipmentAndOrders")]
     partial class AddEquipmentAndOrders
     {
         /// <inheritdoc />
@@ -84,9 +84,16 @@ namespace RedYellowGreen.Api.Infrastructure.Database.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("character varying(255)");
 
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("character varying(255)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("EquipmentId");
+
+                    b.HasIndex("Status");
 
                     b.ToTable("Orders");
                 });
