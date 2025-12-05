@@ -1,7 +1,18 @@
 ﻿services:
+
   redyellowgreen.api:
     image: redyellowgreen.api
     build:
       context: ./RedYellowGreen
       dockerfile: src/RedYellowGreen.Api/Dockerfile
 
+  database:
+    image: postgres:18
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: RedYellowGreenDb
+    ports:
+      - "5432:5432"
